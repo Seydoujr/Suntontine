@@ -1,0 +1,7 @@
+{
+  "name": "sunutontine",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
