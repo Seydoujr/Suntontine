@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="success" class="modern-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white font-bold text-center">
+      🏦 Épargne Classique
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding epargne-classique-page">
+  <!-- Introduction -->
+  <div class="intro-box animate-slide-in">
+    <img src="assets/epargne.svg" alt="Épargne" class="epargne-img" />
+    <h2>Déposez votre montant d’épargne</h2>
+    <p>Une épargne simple, sécurisée et adaptée à vos objectifs financiers.</p>
+  </div>
+
+  <!-- Montant -->
+  <ion-item class="input-box">
+    <ion-label position="floating">Montant à épargner (FCFA)</ion-label>
+    <ion-input type="number" [(ngModel)]="montant" required></ion-input>
+  </ion-item>
+
+  <!-- Sélection de banque -->
+  <ion-item class="input-box">
+    <ion-label>Choisir une banque</ion-label>
+    <ion-select [(ngModel)]="banque" interface="popover" placeholder="Sélectionnez">
+      <ion-select-option *ngFor="let bank of banques" [value]="bank">{{ bank }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" color="success" shape="round" size="large" (click)="validerEpargne()">
+    💰 Valider l’épargne
+    <ion-icon name="checkmark-circle-outline" slot="end"></ion-icon>
+  </ion-button>
+
+ <ion-button 
+  expand="block" 
+  color="primary" 
+  shape="round" 
+  size="large" 
+  (click)="telechargerPDF()"
+  [disabled]="!montant || !banque"
+>
+  📄 Télécharger le reçu PDF
+  <ion-icon name="download-outline" slot="end"></ion-icon>
+</ion-button>
+
+
+  <!-- Partenaires -->
+  <div class="partners-box">
+    <h3>En collaboration avec</h3>
+    <div class="banks-logos">
+      <img src="assets/logos/cms.png" alt="CMS" />
+      <img src="assets/logos/banque-populaire.png" alt="Banque Populaire" />
+      <img src="assets/logos/card.png" alt="CARD" />
+      <img src="assets/logos/ecobank.png" alt="Ecobank" />
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="info-box">
+    <ion-icon name="shield-checkmark-outline"></ion-icon>
+    <p>Vos dépôts sont sécurisés grâce à nos partenaires bancaires certifiés.</p>
+  </div>
+</ion-content>

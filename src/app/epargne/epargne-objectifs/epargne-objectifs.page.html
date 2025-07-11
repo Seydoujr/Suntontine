@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="success" class="modern-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">
+      🎯 Épargne Objectifs
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding epargne-objectifs-page">
+  <!-- Intro -->
+  <div class="intro-box animate-slide-in">
+    <img src="assets/epargne.png" alt="Objectif" class="epargne-img" />
+    <h2>Planifiez vos projets futurs</h2>
+    <p>Définissez un objectif clair et commencez à épargner intelligemment.</p>
+  </div>
+
+  <!-- Formulaire -->
+  <ion-item class="input-box">
+    <ion-label position="floating">Nom de l’objectif</ion-label>
+    <ion-input [(ngModel)]="objectif" placeholder="Ex: Achat moto, voyage..."></ion-input>
+  </ion-item>
+
+  <ion-item class="input-box">
+    <ion-label position="floating">Montant à épargner (FCFA)</ion-label>
+    <ion-input type="number" [(ngModel)]="montant"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="success" shape="round" size="large" (click)="validerObjectif()">
+    ✅ Enregistrer l’objectif
+    <ion-icon name="checkmark-done-outline" slot="end"></ion-icon>
+  </ion-button>
+  <ion-button 
+  expand="block" 
+  color="primary" 
+  shape="round" 
+  size="large" 
+  (click)="telechargerPDF()"
+  [disabled]="!objectif || !montant"
+>
+  📄 Télécharger le reçu PDF
+  <ion-icon name="download-outline" slot="end"></ion-icon>
+</ion-button>
+
+
+  <!-- Partenaires -->
+  <div class="partners-box">
+    <h3>Avec la collaboration de</h3>
+    <div class="banks-logos">
+      <img src="assets/logos/cms.png" alt="CMS" />
+      <img src="assets/logos/banque-populaire.png" alt="Banque Populaire" />
+      <img src="assets/logos/card.png" alt="CARD" />
+      <img src="assets/logos/ecobank.png" alt="Ecobank" />
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">
+      Ouvrir un Compte Épargne
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ouvrir-page">
+  <div class="card-3d">
+    <h2>Formulaire d’ouverture</h2>
+    <ion-item>
+      <ion-label position="floating">Nom complet</ion-label>
+      <ion-input [(ngModel)]="nom"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Montant initial (FCFA)</ion-label>
+      <ion-input type="number" [(ngModel)]="montantInitial"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="success" shape="round" class="submit-btn" (click)="soumettre()">
+      Valider l’ouverture
+      <ion-icon name="checkmark-circle" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

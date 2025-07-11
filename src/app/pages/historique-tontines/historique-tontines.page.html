@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white font-bold text-center">
+      Historique Tontines
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let t of historique">
+      <ion-label>
+        <h3>{{ t.nom }}</h3>
+        <p>📅 {{ t.date }} | 💰 {{ t.montant }} FCFA | 📆 {{ t.duree }} semaines</p>
+      </ion-label>
+      <ion-button color="tertiary" fill="outline" slot="end" (click)="telechargerRecu(t)">
+        Télécharger
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

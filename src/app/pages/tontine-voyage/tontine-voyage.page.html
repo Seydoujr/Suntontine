@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tontine"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">
+      Tontine Voyage
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding voyage-page">
+  <div class="trip-intro">
+    <h2>🌍 Préparez votre prochain voyage</h2>
+    <p>Épargnez en groupe pour découvrir <strong>{{ destination }}</strong> avec l'agence de votre choix.</p>
+  </div>
+
+  <ion-card class="travel-box">
+    <ion-item>
+      <ion-label>Montant Mensuel</ion-label>
+      <ion-note slot="end">{{ montant }} FCFA</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Durée</ion-label>
+      <ion-note slot="end">{{ duree }} mois</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Destination</ion-label>
+      <ion-select [(ngModel)]="destination" interface="popover" placeholder="Choisir une destination">
+        <ion-select-option *ngFor="let dest of destinations" [value]="dest">
+          {{ dest }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Agence de Voyage</ion-label>
+      <ion-select [(ngModel)]="agenceSelectionnee" interface="popover" placeholder="Choisir une agence">
+        <ion-select-option *ngFor="let agence of agences" [value]="agence.nom">
+          {{ agence.nom }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-card>
+
+  <div class="agence-logos">
+    <ion-chip *ngFor="let agence of agences" color="light">
+      <img [src]="agence.logo" alt="{{ agence.nom }}" />
+      <ion-label>{{ agence.nom }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <ion-button expand="block" color="tertiary" shape="round" (click)="rejoindre()">
+    Rejoindre la Tontine Voyage
+    <ion-icon name="airplane-outline" slot="end"></ion-icon>
+  </ion-button>
+</ion-content>

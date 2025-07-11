@@ -1,0 +1,78 @@
+<ion-content class="ion-padding register-page" [fullscreen]="true">
+  <div class="register-container">
+    <div class="box">
+      <div class="logo-container ion-text-center">
+        <img src="assets/logo.png" alt="Logo Sunu Tontine" class="logo-image">
+        <h1 class="text-green">Sunu Tontine</h1>
+        <p class="subtitle">Créer un compte</p>
+      </div>
+
+      <ion-list lines="none" class="form-fields">
+        <ion-item class="custom-item">
+          <ion-input
+            label="Nom complet"
+            label-placement="floating"
+            type="text"
+            [(ngModel)]="fullname"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="custom-item">
+          <ion-input
+            label="Email"
+            label-placement="floating"
+            type="email"
+            [(ngModel)]="email"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="custom-item">
+          <ion-input
+            label="Mot de passe"
+            label-placement="floating"
+            type="password"
+            [(ngModel)]="password"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item class="custom-item">
+          <ion-input
+            label="Numéro d'identité (CNI)"
+            label-placement="floating"
+            type="text"
+            [(ngModel)]="idNumber"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <!-- Mini Captcha -->
+        <div class="captcha-container">
+          <p class="captcha-question">Combien font {{ captchaA }} + {{ captchaB }} ?</p>
+          <ion-input
+            type="number"
+            [(ngModel)]="captchaAnswer"
+            placeholder="Réponse"
+            required>
+          </ion-input>
+        </div>
+
+        <!-- Check: Pas un robot -->
+        <ion-item lines="none">
+          <ion-checkbox [(ngModel)]="notRobot" slot="start"></ion-checkbox>
+          <ion-label>Je confirme que je ne suis pas un robot</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" color="success" class="ion-margin-top" (click)="register()">
+        S’inscrire
+      </ion-button>
+
+      <p class="ion-text-center ion-margin-top register-link">
+        Vous avez déjà un compte ? <a routerLink="/login">Se connecter</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

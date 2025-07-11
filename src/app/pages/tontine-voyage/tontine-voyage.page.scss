@@ -1,0 +1,53 @@
+.voyage-page {
+  background: #fff7ed;
+
+  .trip-intro {
+    text-align: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 1.4rem;
+      color: #c2410c;
+      font-weight: bold;
+    }
+
+    p {
+      color: #78350f;
+      font-size: 1rem;
+    }
+  }
+
+  .travel-box {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+  }
+
+  .agence-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+
+    ion-chip {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 28px;
+        height: 28px;
+        margin-right: 8px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  ion-button {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(202, 138, 4, 0.2);
+  }
+}

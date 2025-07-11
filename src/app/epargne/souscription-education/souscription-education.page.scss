@@ -1,0 +1,43 @@
+.form-box {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  margin-top: 24px;
+
+  h2 {
+    font-size: 1.4rem;
+    color: #064e3b;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  ion-item {
+    margin-bottom: 14px;
+    border-radius: 12px;
+    --background: #ffffff;
+    --padding-start: 12px;
+  }
+
+  .submit-btn {
+    margin-top: 18px;
+    --background: #10b981;
+    font-weight: bold;
+  }
+
+  ion-card {
+    margin-top: 12px;
+    font-size: 0.85rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+}

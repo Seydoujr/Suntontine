@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne-education"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">Souscription Éducation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="form-box">
+
+    <div class="text-center">
+      <img src="assets/images/education-save.png" alt="Épargne Éducation" width="180" style="margin-bottom: 16px;" />
+    </div>
+
+    <h2>📘 Ouvrir un compte Épargne Éducation</h2>
+    <p>Remplissez ce formulaire pour débuter l’épargne scolaire de votre enfant.</p>
+
+    <ion-card color="light">
+      <ion-card-content>
+        🎯 <strong>Astuce :</strong> Plus la durée est longue, plus les avantages sont importants !
+      </ion-card-content>
+    </ion-card>
+
+    <form (ngSubmit)="submitForm()">
+      <ion-item>
+        <ion-label position="floating">Nom</ion-label>
+        <ion-input [(ngModel)]="nom" name="nom" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Prénom</ion-label>
+        <ion-input [(ngModel)]="prenom" name="prenom" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nom de l'enfant</ion-label>
+        <ion-input [(ngModel)]="enfantNom" name="enfantNom" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Montant Mensuel (FCFA)</ion-label>
+        <ion-input [(ngModel)]="montant" name="montant" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Durée de l’épargne (mois)</ion-label>
+        <ion-select [(ngModel)]="duree" name="duree" placeholder="Choisir...">
+          <ion-select-option value="12">12 mois</ion-select-option>
+          <ion-select-option value="24">24 mois</ion-select-option>
+          <ion-select-option value="36">36 mois</ion-select-option>
+          <ion-select-option value="48">48 mois</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-checkbox slot="start" [(ngModel)]="acceptConditions" name="acceptConditions" required></ion-checkbox>
+        <ion-label>J’accepte les conditions générales d’utilisation</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" class="submit-btn" shape="round">
+        Valider la souscription
+      </ion-button>
+    </form>
+     <ion-button
+  expand="block"
+  color="tertiary"
+  class="download-btn"
+  shape="round"
+  (click)="telechargerPDF()"
+  [disabled]="!nom || !prenom || !email || !enfantNom || !montant || !duree"
+>
+  📄 Télécharger le reçu PDF
+  <ion-icon slot="end" name="download-outline"></ion-icon>
+</ion-button>
+    <ion-text color="medium" class="text-center">
+      <p style="font-size: 0.85rem; margin-top: 20px;">
+        💬 Besoin d’aide ? <a href="/contacter-conseiller">Contactez un conseiller</a>.
+      </p>
+    </ion-text>
+  </div>
+</ion-content>

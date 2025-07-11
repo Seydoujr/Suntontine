@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pret"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold text-lg">
+      Prêt Rapide
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding pret-details-page">
+  <!-- Carte principale -->
+  <ion-card class="main-card">
+    <ion-card-header>
+      <ion-card-title>💸 Prêt Rapide</ion-card-title>
+      <ion-card-subtitle>Obtenez un prêt instantané en quelques clics</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="features-list">
+        <ion-item lines="none">
+          <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+          <ion-label>Montant: 50 000 à 500 000 FCFA</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+          <ion-label>Délai: 24 heures maximum</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="checkmark-circle" slot="start" color="success"></ion-icon>
+          <ion-label>Taux avantageux</ion-label>
+        </ion-item>
+      </div>
+
+      <!-- Sélection du montant -->
+      <div class="amount-selection">
+        <h3>Choisissez votre montant :</h3>
+        <div class="amount-options">
+          <ion-chip *ngFor="let amount of amountOptions" 
+                   [class.selected]="selectedAmount === amount"
+                   (click)="selectAmount(amount)">
+            {{ amount | number }} FCFA
+          </ion-chip>
+        </div>
+        <ion-item class="custom-amount">
+          <ion-label position="stacked">Ou saisissez un montant personnalisé</ion-label>
+          <ion-input type="number" 
+                    placeholder="Entre 50 000 et 500 000"
+                    min="50000" 
+                    max="500000"
+                    [(ngModel)]="customAmount"
+                    (ionChange)="selectCustomAmount()"></ion-input>
+        </ion-item>
+      </div>
+
+      <!-- Modes de paiement -->
+      <div class="payment-methods">
+        <h3>Modes de paiement disponibles :</h3>
+        <div class="payment-icons">
+          <div class="payment-icon">
+            <img src="assets/logos/wave.png" alt="Wave" />
+            <span>Wave</span>
+          </div>
+          <div class="payment-icon">
+            <img src="assets/logos/orange-money.png" alt="Orange Money" />
+            <span>Orange Money</span>
+          </div>
+          <div class="payment-icon">
+            <ion-icon name="card-outline"></ion-icon>
+            <span>Virement bancaire</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Choix opérateur obligatoire -->
+      <div class="operator-selection">
+        <h3>Choisissez votre opérateur pour récupérer votre crédit :</h3>
+        <ion-radio-group [(ngModel)]="selectedOperator" name="operator" required>
+          <ion-item lines="none" class="operator-item">
+            <ion-radio slot="start" value="wave"></ion-radio>
+            <img src="assets/logos/wave.png" alt="Wave" class="operator-logo" />
+            <ion-label>Wave</ion-label>
+          </ion-item>
+
+          <ion-item lines="none" class="operator-item">
+            <ion-radio slot="start" value="orange-money"></ion-radio>
+            <img src="assets/logos/orange-money.png" alt="Orange Money" class="operator-logo" />
+            <ion-label>Orange Money</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </div>
+
+      <ion-button expand="block" color="success" (click)="demanderPret()" [disabled]="!selectedAmount">
+        <ion-icon name="send-outline" slot="start"></ion-icon>
+        Un clic pour faire une demande
+      </ion-button>
+      <ion-button expand="block" color="tertiary" (click)="genererRecuPDF()" [disabled]="!selectedAmount || !selectedOperator">
+  <ion-icon name="document-outline" slot="start"></ion-icon>
+  Télécharger le reçu PDF
+</ion-button>
+      <!-- Partenariat -->
+      <div class="partenariat-info">
+        <ion-icon name="hand-left-outline" color="success"></ion-icon>
+        <span>
+          En partenariat avec les institutions d’épargne et de crédit reconnues au Sénégal pour garantir un service fiable.
+        </span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Section FAQ -->
+  <ion-card class="faq-card">
+    <ion-card-header>
+      <ion-card-title>❓ Questions fréquentes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-accordion-group>
+        <ion-accordion value="eligibility">
+          <ion-item slot="header">
+            <ion-label>Qui peut bénéficier de ce prêt ?</ion-label>
+          </ion-item>
+          <div slot="content">
+            Tous les membres actifs depuis plus de 3 mois avec des cotisations à jour.
+          </div>
+        </ion-accordion>
+
+        <ion-accordion value="documents">
+          <ion-item slot="header">
+            <ion-label>Quels documents fournir ?</ion-label>
+          </ion-item>
+          <div slot="content">
+            Une pièce d'identité valide et votre dernier reçu de cotisation.
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

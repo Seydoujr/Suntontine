@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">
+      Épargne SunuTontine
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding epargne-page">
+  <div class="intro-text">
+    <h2>Choisissez un type d'épargne</h2>
+    <p>Des solutions adaptées à chaque étape de votre vie 💼</p>
+  </div>
+
+  <div class="button-grid">
+    <ion-card *ngFor="let service of services" class="epargne-card">
+      <div class="icon-circle" [style.background]="service.color">
+        <ion-icon [name]="service.icon"></ion-icon>
+      </div>
+      <h3>{{ service.title }}</h3>
+      <ion-button [routerLink]="service.route" class="explore-button" expand="block" shape="round">
+        Explorer
+        <ion-icon name="arrow-forward-circle" slot="end"></ion-icon>
+      </ion-button>
+    </ion-card>
+  </div>
+  <div class="cta-box animate__animated animate__fadeInUp">
+    <h4>Vous n'avez pas encore de compte ?</h4>
+    <p>Ouvrez un compte épargne dès maintenant pour profiter de tous nos services 💰</p>
+    <ion-button routerLink="/ouvrir-compte-epargne" expand="block" color="success" shape="round">
+      Ouvrir un compte épargne
+    </ion-button>
+  </div>
+</ion-content>

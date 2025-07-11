@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold text-lg">
+      Épargne Éducation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding education-page">
+  <div class="hero-section">
+    <img src="assets/images/education.png" alt="éducation" class="hero-image" />
+    <h2>Investissez dans l’avenir de vos enfants 📚</h2>
+    <p>Une solution d’épargne pensée pour assurer la scolarité de vos enfants à chaque étape.</p>
+  </div>
+
+  <ion-card class="info-card">
+    <ion-card-header>
+      <ion-card-title>Pourquoi choisir ce plan ?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ul>
+        <li>💡 Anticipez les frais scolaires futurs</li>
+        <li>📈 Bénéficiez d’intérêts avantageux</li>
+        <li>🔐 Sécurisez vos versements mensuels</li>
+        <li>🎓 Accompagnez leur réussite jusqu’à l’université</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" shape="round" color="success" class="cta-button" (click)="ouvrirCompte()">
+    <ion-icon slot="start" name="school-outline"></ion-icon>
+    Ouvrir un compte épargne éducation
+  </ion-button>
+
+  <div class="partenaires-section">
+    <h3>Nos partenaires bancaires</h3>
+    <div class="logos-container">
+      <img src="assets/logos/cms.png" alt="Crédit Mutuel du Sénégal" />
+      <img src="assets/logos/card.png" alt="BICIS" />
+      <img src="assets/logos/uba.png" alt="BOA" />
+      <img src="assets/logos/ecobank.png" alt="Ecobank" />
+    </div>
+  </div>
+</ion-content>

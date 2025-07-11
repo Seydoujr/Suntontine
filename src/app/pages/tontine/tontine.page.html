@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-toolbar color="success" class="shadow-xl">
+    <ion-buttons slot="start">
+      <!-- Bouton retour vers dashboard -->
+      <ion-button fill="clear" (click)="goTo('/dashboard')" class="text-white">
+        <ion-icon slot="icon-only" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="text-white text-center text-2xl font-bold tracking-tight">
+      Tontines
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="text-white">
+        <ion-icon slot="icon-only" name="help-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="tontine-page ion-padding">
+  <div class="text-center mt-10 mb-8">
+    <h1 class="page-title">Choisissez votre Tontine</h1>
+    <p class="page-subtitle">
+      Une solution adaptée à vos besoins et à votre style de vie
+    </p>
+    <div class="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-500 mx-auto mt-4 rounded-full opacity-80"></div>
+  </div>
+
+  <!-- Cartes Tontines Stylisées (liens intacts) -->
+  <div class="grid gap-6 md:grid-cols-2 lg:gap-8 max-w-4xl mx-auto">
+    <div class="tontine-card" (click)="goTo('/tontine-hebdomadaire')">
+      <div class="card-gradient-green"></div>
+      <div class="icon-wrapper">
+        <ion-icon name="calendar-outline" class="icon text-green-600"></ion-icon>
+      </div>
+      <div class="card-text">
+        <h2 class="card-title">Tontine Hebdomadaire</h2>
+        <p class="card-description">Épargnez chaque semaine avec un groupe de membres fiables.</p>
+        <div class="card-badge">Populaire</div>
+      </div>
+    </div>
+
+    <div class="tontine-card" (click)="goTo('/tontine-femme')">
+      <div class="card-gradient-pink"></div>
+      <div class="icon-wrapper">
+        <ion-icon name="female-outline" class="icon text-pink-600"></ion-icon>
+      </div>
+      <div class="card-text">
+        <h2 class="card-title">Tontine Femme</h2>
+        <p class="card-description">Tontine solidaire conçue pour l'autonomisation des femmes.</p>
+      </div>
+    </div>
+
+    <div class="tontine-card" (click)="goTo('/tontine-professionnelle')">
+      <div class="card-gradient-blue"></div>
+      <div class="icon-wrapper">
+        <ion-icon name="briefcase-outline" class="icon text-blue-600"></ion-icon>
+      </div>
+      <div class="card-text">
+        <h2 class="card-title">Tontine Pro</h2>
+        <p class="card-description">Idéale pour collègues ou partenaires professionnels.</p>
+      </div>
+    </div>
+
+    <div class="tontine-card" (click)="goTo('/tontine-voyage')">
+      <div class="card-gradient-purple"></div>
+      <div class="icon-wrapper">
+        <ion-icon name="airplane-outline" class="icon text-purple-600"></ion-icon>
+      </div>
+      <div class="card-text">
+        <h2 class="card-title">Tontine Voyage</h2>
+        <p class="card-description">Financez vos futurs voyages avec une communauté de voyageurs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section Avantages -->
+  <div class="advantages-section">
+    <div class="advantages-container">
+      <h3 class="advantages-title">Nos avantages exclusifs</h3>
+      <div class="advantages-grid">
+        <div class="advantage-item">
+          <div class="advantage-icon bg-emerald-100">
+            <ion-icon name="lock-closed-outline" class="text-emerald-600"></ion-icon>
+          </div>
+          <div>
+            <h4 class="advantage-feature">Sécurité garantie</h4>
+            <p class="advantage-detail">Protocoles bancaires et chiffrement de données</p>
+          </div>
+        </div>
+
+        <div class="advantage-item">
+          <div class="advantage-icon bg-blue-100">
+            <ion-icon name="people-outline" class="text-blue-600"></ion-icon>
+          </div>
+          <div>
+            <h4 class="advantage-feature">Communauté vérifiée</h4>
+            <p class="advantage-detail">Membres authentifiés pour plus de confiance</p>
+          </div>
+        </div>
+
+        <div class="advantage-item">
+          <div class="advantage-icon bg-amber-100">
+            <ion-icon name="phone-portrait-outline" class="text-amber-600"></ion-icon>
+          </div>
+          <div>
+            <h4 class="advantage-feature">Application intuitive</h4>
+            <p class="advantage-detail">Gestion simplifiée depuis votre mobile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

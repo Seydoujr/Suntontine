@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar color="success" class="modern-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold text-lg">
+      🏦 Nos Offres de Prêt
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pret-page ion-padding">
+
+  <!-- Section Offres -->
+  <div class="pret-grid">
+    <ion-card *ngFor="let pret of prets" class="pret-card">
+      <div class="pret-icon" [style.background]="pret.color">
+        <ion-icon [name]="pret.icon"></ion-icon>
+      </div>
+      <ion-card-header>
+        <ion-card-title>{{ pret.title }}</ion-card-title>
+        <ion-card-subtitle>{{ pret.description }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button 
+          expand="block"
+          shape="round"
+          fill="solid"
+          color="success"
+          [routerLink]="pret.route"
+          (click)="trackLoanClick(pret.title)"
+          class="pret-action-btn">
+          💼 Demander ce prêt
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Section appel à l'action -->
+  <div class="cta-box">
+    <h2>Besoin d’un prêt personnalisé ?</h2>
+    <p>Contactez notre équipe pour des solutions adaptées à votre profil.</p>
+    <div class="contact-buttons">
+      <a href="tel:+221772917800" class="styled-link-button" (click)="confirmCall($event, '+221772917800')">
+        <ion-button expand="block" shape="round" color="success">
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          📞 Appeler le conseiller 1
+          <ion-badge color="light" slot="end" class="disponible-badge">✅ Disponible</ion-badge>
+        </ion-button>
+      </a>
+
+      <a href="tel:+221766091219" class="styled-link-button" (click)="confirmCall($event, '+221766091219')">
+        <ion-button expand="block" shape="round" color="success">
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+          📞 Appeler le conseiller 2
+          <ion-badge color="light" slot="end" class="disponible-badge">✅ Disponible</ion-badge>
+        </ion-button>
+      </a>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h3>Foire Aux Questions</h3>
+    <details>
+      <summary>Quels sont les critères pour obtenir un prêt ?</summary>
+      <p>Nous demandons une vérification d’identité, un justificatif de revenus et un apport personnel adapté.</p>
+    </details>
+    <details>
+      <summary>Quel est le délai de réponse ?</summary>
+      <p>Vous recevez une réponse sous 24h ouvrées après votre demande.</p>
+    </details>
+    <details>
+      <summary>Comment est calculé le taux d’intérêt ?</summary>
+      <p>Le taux est fixe et dépend de la durée et du montant emprunté.</p>
+    </details>
+  </div>
+
+  <!-- Témoignage -->
+  <div class="testimonial">
+    <ion-icon name="chatbubble-ellipses-outline" class="quote-icon"></ion-icon>
+    <p>« Grâce au crédit solidaire, j’ai pu lancer mon commerce. Merci SunuTontine ! »</p>
+    <small>– Aïcha F., Membre depuis 2022</small>
+  </div>
+
+</ion-content>

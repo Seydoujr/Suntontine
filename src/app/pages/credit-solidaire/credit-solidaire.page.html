@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pret"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white font-bold text-center">Crédit Solidaire</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="banner animate__animated animate__fadeInDown">
+    <ion-icon name="people-circle-outline" class="banner-icon"></ion-icon>
+    <h2>Crédit Solidaire</h2>
+    <p>Unissez vos forces pour emprunter ensemble.</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Informations du crédit</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nom du groupe solidaire</ion-label>
+        <ion-input [(ngModel)]="solidarityGroup" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Montant souhaité (FCFA)</ion-label>
+        <ion-input type="number" [(ngModel)]="loanAmount" [max]="maxAmount"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Durée (mois)</ion-label>
+        <ion-select [(ngModel)]="duration" interface="popover">
+          <ion-select-option *ngFor="let m of [3, 6, 9, 12, 18, 24]" [value]="m">{{ m }} mois</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Choix de l'opérateur -->
+      <ion-item>
+        <ion-label>Choisir l'opérateur</ion-label>
+      </ion-item>
+
+      <ion-list lines="none" class="operator-list">
+        <ion-radio-group [(ngModel)]="selectedOperator" name="operator" required>
+          <ion-item class="operator-item" lines="none">
+            <ion-radio slot="start" value="wave"></ion-radio>
+            <ion-avatar slot="start" class="operator-logo">
+              <img src="assets/wave.png" alt="Wave">
+            </ion-avatar>
+            <ion-label>Wave</ion-label>
+          </ion-item>
+
+          <ion-item class="operator-item" lines="none">
+            <ion-radio slot="start" value="orange-money"></ion-radio>
+            <ion-avatar slot="start" class="operator-logo">
+              <img src="assets/orange-money.png" alt="Orange Money">
+            </ion-avatar>
+            <ion-label>Orange Money</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-button expand="block" shape="round" (click)="submitRequest()">
+          📤 Demander ce crédit
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+<ion-button expand="block" color="tertiary" (click)="generatePDF()">
+  🧾 Télécharger le reçu PDF
+</ion-button>
+
+</ion-content>

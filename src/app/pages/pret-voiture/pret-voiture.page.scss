@@ -1,0 +1,86 @@
+ion-content {
+  --background: #f8f9fa;
+}
+
+.hero-section {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 16px;
+    color: white;
+
+    h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    p {
+      margin: 4px 0 0;
+      opacity: 0.9;
+    }
+  }
+}
+
+.vehicle-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.vehicle-card {
+  border: 2px solid transparent;
+  transition: border 0.3s;
+  cursor: pointer;
+
+  &.selected {
+    border-color: var(--ion-color-primary);
+  }
+
+  ion-card-header {
+    padding-bottom: 0;
+
+    ion-card-title {
+      font-size: 1.1rem;
+    }
+
+    ion-card-subtitle {
+      color: var(--ion-color-primary);
+      font-weight: bold;
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+}
+
+.result-section {
+  text-align: center;
+  margin: 20px 0;
+
+  .monthly-payment {
+    font-size: 1.8rem;
+    color: var(--ion-color-primary);
+    font-weight: bold;
+    margin: 8px 0;
+  }
+}
+

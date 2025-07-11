@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div style="color: white; text-align: center; font-weight: bold; font-size: 1.25rem;">
+        {{ pageTitle }}
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gray-50 ion-padding">
+  <!-- FORMULAIRE NOUVELLE TONTINE -->
+  <div *ngIf="isNew; else detailsView" class="max-w-2xl mx-auto">
+    <div class="bg-white rounded-xl shadow-lg p-6">
+      <h1 class="text-xl font-bold mb-4">Créer une nouvelle {{ itemType }}</h1>
+
+      <form [formGroup]="form" (ngSubmit)="saveTontine()">
+        <ion-item>
+          <ion-label position="floating">Nom</ion-label>
+          <ion-input formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Montant</ion-label>
+          <ion-input type="number" formControlName="amount"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Durée</ion-label>
+          <ion-input formControlName="duration"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="success" class="mt-4" type="submit">
+          Enregistrer
+        </ion-button>
+      </form>
+    </div>
+  </div>
+
+  <!-- AFFICHAGE DÉTAILS SI PAS NOUVELLE TONTINE -->
+  <ng-template #detailsView>
+    <div *ngIf="currentItem; else notFound" class="max-w-2xl mx-auto">
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
+        <div class="h-48 flex items-center justify-center bg-green-100">
+          <ion-icon [name]="getItemIcon()" style="font-size: 3.5rem; color: #16a34a;"></ion-icon>
+        </div>
+
+        <div class="p-6">
+          <h1 class="text-2xl font-bold mb-2">
+            {{ currentItem.name || currentItem.title }}
+          </h1>
+          <p class="text-gray-600 mb-4">{{ currentItem.description }}</p>
+
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <p class="text-sm text-gray-500">Montant</p>
+              <p class="font-semibold">{{ currentItem.amount | currency:'':true:'1.0-0' }} FCFA</p>
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <p class="text-sm text-gray-500">Durée</p>
+              <p class="font-semibold">{{ currentItem.duration }}</p>
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg" *ngIf="currentItem.members">
+              <p class="text-sm text-gray-500">Membres</p>
+              <p class="font-semibold">{{ currentItem.members }}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col space-y-3">
+            <ion-button expand="block" color="success" (click)="joinItem()">
+             Rejoindre cette {{ itemType }}
+            </ion-button>
+
+
+            <ion-button expand="block" fill="outline" color="medium" (click)="goBack()">
+              Retour au tableau de bord
+            </ion-button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-6" *ngIf="itemType === 'tontine'">
+        <h2 class="text-lg font-semibold mb-4">Règles de cette tontine</h2>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Cotisation mensuelle</li>
+          <li>Tour de rôle aléatoire</li>
+          <li>Frais de gestion : 500 FCFA/mois</li>
+          <li>Paiement avant le 5 de chaque mois</li>
+        </ul>
+      </div>
+    </div>
+
+    <ng-template #notFound>
+      <div class="text-center text-gray-500 mt-20">
+        Détail introuvable. Vérifiez l'élément sélectionné.
+      </div>
+    </ng-template>
+  </ng-template>
+</ion-content>

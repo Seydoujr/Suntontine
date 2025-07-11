@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/members" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white">Profil Membre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="profile-page ion-padding">
+  <div class="container">
+    <div class="profile-top">
+      <div class="photo-container">
+        <img *ngIf="member?.photo" [src]="member.photo" [alt]="'Photo de ' + member.name" class="photo"/>
+        <div *ngIf="!member?.photo" class="avatar-fallback" [style.backgroundColor]="member?.color">
+          {{ member?.initials }}
+        </div>
+      </div>
+      <h1 class="member-name">{{ member?.name }}</h1>
+      <h2 class="member-role">{{ member?.role }}</h2>
+      <p class="member-bio" *ngIf="member?.bio">{{ member.bio }}</p>
+    </div>
+
+    <ion-card class="section-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="mail-outline" slot="start"></ion-icon> Contact
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Email :</strong> {{ member?.email || 'Non renseigné' }}</p>
+        <p><strong>Téléphone :</strong> {{ member?.phone || 'Non renseigné' }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="section-card">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="stats-chart-outline" slot="start"></ion-icon> Participation
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="stats-grid">
+          <div class="stat">
+            <h3>24</h3>
+            <p>Mois</p>
+          </div>
+          <div class="stat">
+            <h3>98%</h3>
+            <p>Présence</p>
+          </div>
+          <div class="stat">
+            <h3>À jour</h3>
+            <p>Cotisation</p>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div class="action-buttons">
+      <ion-button expand="block" color="success" class="main-action" (click)="contactMember()">
+  <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
+  Contacter
+</ion-button>
+
+     <ion-button expand="block" color="medium" fill="outline" [routerLink]="['/transaction-history']">
+  <ion-icon name="document-text-outline" slot="start"></ion-icon>
+  Historique
+</ion-button>
+    </div>
+  </div>
+</ion-content><br><br><br><br><br><br>
+
+<ion-footer>
+  <ion-toolbar color="light" class="footer-toolbar">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/dashboard">Accueil</a>
+        <a href="#">Contact</a>
+        <a href="#">Mentions légales</a>
+      </div>
+      <p class="copyright">© 2025 Tontine App - Tous droits réservés</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,88 @@
+.education-page {
+  background: #f0f9ff;
+
+  .hero-section {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    .hero-image {
+      max-width: 140px;
+      margin: 0 auto 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #475569;
+      padding: 0 1rem;
+    }
+  }
+
+  .info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1.5rem;
+
+    ion-card-title {
+      color: #0f766e;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    ion-card-content ul {
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        padding: 0.4rem 0;
+        font-size: 1rem;
+        color: #374151;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .cta-button {
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 128, 0, 0.15);
+  }
+
+  .partenaires-section {
+    text-align: center;
+    margin-top: 2rem;
+
+    h3 {
+      font-size: 1.1rem;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .logos-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      img {
+        height: 40px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
+}

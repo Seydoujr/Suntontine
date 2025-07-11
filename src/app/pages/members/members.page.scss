@@ -1,0 +1,230 @@
+/* members.page.scss */
+.members-page {
+  --ion-background-color: #f8fafc;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+  .member-card {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    background: white;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+    }
+
+    .avatar-container {
+      width: 100px;
+      height: 100px;
+      margin: 1.5rem auto 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .avatar-initials {
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    ion-card-header {
+      padding: 0 1rem;
+      width: 100%;
+
+      ion-card-title {
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 0.25rem;
+        font-size: 1.1rem;
+      }
+
+      ion-card-subtitle {
+        font-size: 0.9rem;
+        color: #64748b;
+        font-weight: 500;
+      }
+    }
+
+    ion-card-content {
+      padding: 0 1rem 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+
+      ion-button {
+        --box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        --border-radius: 9999px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        margin: 0;
+        width: auto;
+      }
+    }
+  }
+
+  /* Disposition deux par deux à partir de 640px */
+  @media (min-width: 640px) {
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .member-wrapper {
+      width: calc(50% - 0.5rem);
+      margin-bottom: 1rem;
+    }
+
+    .member-card {
+      margin-bottom: 0;
+      height: 100%;
+    }
+  }
+
+  /* Ajustements pour très grands écrans */
+  @media (min-width: 1024px) {
+    .member-wrapper {
+      width: calc(50% - 1rem);
+    }
+  }
+}
+
+/* Styles globaux pour ion-content */
+ion-content {
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+}
+/* ... (conservez tous les styles existants) ... */
+
+/* Styles pour le footer */
+ion-footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 0.5rem 0;
+
+  .footer-toolbar {
+    --background: transparent;
+    --border-width: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-link {
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #2d3748;
+      text-decoration: underline;
+    }
+  }
+
+  .footer-copyright {
+    color: #718096;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+}
+
+/* Ajustement du contenu principal pour le footer */
+ion-content {
+  --padding-bottom: 80px; /* Espace pour le footer */
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  ion-footer {
+    .footer-links {
+      gap: 1rem;
+      background-color: #065f46;
+    }
+    
+    .footer-link {
+      font-size: 0.8rem;
+    }
+    
+    .footer-copyright {
+      font-size: 0.7rem;
+    }
+  }
+}
+.intro-section {
+  margin-bottom: 1rem;
+  h2 {
+    color: #10b981;
+  }
+  p {
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+}
+
+.member-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background-color: #d1fae5;
+  color: #065f46;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+.custom-toast {
+  --background: #047857;
+  --color: #ffffff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+

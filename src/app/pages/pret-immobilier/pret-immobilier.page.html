@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar color="secondary" class="modern-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pret"></ion-back-button>
+    </ion-buttons>
+    <ion-title>🏠 Prêt Immobilier</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Section Héro -->
+  <div class="hero-section">
+    <img src="assets/img/immobilier-banner.jpg" class="hero-image" alt="Bannière immobilière" />
+    <div class="hero-overlay">
+      <h1>🏡 Financez votre projet immobilier</h1>
+      <p>Construisez, achetez ou rénovez avec SunuTontine</p>
+    </div>
+  </div>
+
+  <!-- Sélection du type de bien -->
+  <h2 class="section-title">Quel type de bien ?</h2>
+  <div class="property-type-grid">
+    <div
+      *ngFor="let type of propertyTypes"
+      class="type-card"
+      [class.selected]="selectedPropertyType === type.value"
+      (click)="selectedPropertyType = type.value">
+      <div class="image-container">
+        <img [src]="type.image" alt="{{ type.label }}" />
+      </div>
+      <p>{{ type.label }}</p>
+    </div>
+  </div>
+
+  <!-- Carte de simulation -->
+  <ion-card class="simulation-card">
+    <ion-card-header>
+      <ion-card-title>Simulation de prêt</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <!-- Montant -->
+      <ion-item>
+        <ion-label position="stacked">Montant (FCFA)</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="loanAmount"
+          placeholder="Ex: 25000000"
+          min="5000000">
+        </ion-input>
+      </ion-item>
+
+      <!-- Durée -->
+      <ion-item>
+        <ion-label position="stacked">Durée (années)</ion-label>
+        <ion-segment [(ngModel)]="selectedDuration" scrollable>
+          <ion-segment-button *ngFor="let duration of durationOptions" [value]="duration">
+            {{ duration }} ans
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+      <!-- Résultat -->
+      <ion-item lines="none">
+        <ion-label>Mensualité estimée :</ion-label>
+        <ion-text slot="end" color="secondary">
+          <strong>{{ calculatePayment() | number }} FCFA/mois</strong>
+        </ion-text>
+      </ion-item>
+
+      <!-- Taux dynamique -->
+      <ion-note>
+        Taux fixe pour {{ getLabel() }} : {{ (getRate() * 100) | number:'1.1-1' }}%
+      </ion-note>
+
+      <!-- Bouton -->
+      <ion-button expand="block" color="secondary" (click)="submitRequest()" class="submit-button">
+        Demander une étude
+      </ion-button>
+      <ion-button expand="block" color="secondary" (click)="submitRequest()" class="submit-button">
+  📄 Demander une étude & Recevoir un PDF
+</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Propriétés vedettes -->
+  <h2 class="section-title">Propriétés vedettes</h2>
+  <div class="featured-properties">
+    <div *ngFor="let property of featuredProperties" class="featured-card">
+      <img [src]="property.image" alt="{{ property.title }}" />
+      <div class="badge">🔥 Populaire</div>
+      <div class="property-info">
+        <h3>{{ property.title }}</h3>
+        <p class="price">{{ property.price | number }} FCFA</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carte -->
+  <h2 class="section-title">Nos zones de couverture</h2>
+  <ion-card class="map-card">
+    <img src="assets/img/map.jpg" alt="Carte du Sénégal" />
+  </ion-card>
+
+  <!-- Bouton appel -->
+  <a href="tel:+221772917800" style="text-decoration: none;">
+    <ion-button expand="block" color="tertiary" class="cta-button">
+      📞 Contacter un agent
+    </ion-button>
+  </a>
+</ion-content>

@@ -1,0 +1,285 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      <div style="text-align: center; font-size: 1.25rem; font-weight: bold; color: white;">
+        Sunu Tontine
+      </div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleUserMenu()">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="dashboard-page ion-padding">
+  <div class="layout-container">
+    <!-- Section gauche -->
+    <div class="left-panel">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="services-list">
+        <div class="service-card">
+          <h3 class="service-title">💰 Lebalma (Prêt)</h3>
+          <a routerLink="/pret" class="service-option">Prêt Rapide</a>
+          <a routerLink="/pret" class="service-option">Crédit Solidaire</a>
+          <a routerLink="/pret" class="service-option">Prêt Voiture</a>
+          <a routerLink="/pret" class="service-option">Prêt Immobilier</a>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">💼 Caffe (Épargne)</h3>
+          <a routerLink="/epargne" class="service-option">Plan Épargne Mensuel</a>
+          <a routerLink="/epargne" class="service-option">Épargne Objectif</a>
+          <a routerLink="/epargne" class="service-option">Épargne Retraite</a>
+          <a routerLink="/epargne" class="service-option">Épargne Scolarité</a>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">👥 Tontine</h3>
+          <a routerLink="/tontine" class="service-option">Tontine Hebdomadaire</a>
+          <a routerLink="/tontine" class="service-option">Tontine Femme</a>
+          <a routerLink="/tontine" class="service-option">Tontine Professionnelle</a>
+          <a routerLink="/tontine" class="service-option">Tontine Voyage</a>
+        </div>
+      </div>
+    </div>
+    <!-- Section droite -->
+    <div class="right-panel full-width">
+      <section class="welcome-section">
+        <div class="welcome-card">
+          <div class="welcome-content">
+            <img src="assets/logo.png" alt="Logo Sunu Tontine" class="logo-image" />
+            <div class="welcome-text">
+              <h2 class="welcome-title">Bienvenue 👋</h2>
+              <p class="welcome-subtitle">Votre partenaire financier de confiance</p>
+              <div class="welcome-stats">
+                <div class="bank-partners">
+  <p class="partner-title">Nos partenaires bancaires :</p>
+  <div class="bank-logos">
+    <img src="assets/logos/cms.png" alt="Crédit Mutuel du Sénégal" />
+    <img src="assets/logos/banque-populaire.png" alt="Banque Atlantique" />
+    <img src="assets/logos/ecobank.png" alt="Coris Bank" />
+    <img src="assets/logos/uba.png" alt="UBA" />
+  </div>
+</div>
+                <div class="stat-item">
+                  <ion-icon name="people-outline"></ion-icon>
+                  <span>+500 membres</span>
+                </div>
+                <div class="stat-item">
+                  <ion-icon name="wallet-outline"></ion-icon>
+                  <span>+10M FCFA épargnés</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ion-button expand="block" color="success" class="quick-action" routerLink="/members">
+            <ion-icon name="rocket-outline" slot="start"></ion-icon>
+            Démarrer maintenant
+          </ion-button>
+        </div>
+      </section>
+
+      <section class="launch-offer">
+        <div class="offer-card">
+          <h2 class="offer-title">Offre de lancement</h2>
+          <div class="marquee-container">
+  <div class="marquee-text">
+    L'application SUNUTONTINE sera bientôt disponible. Pour faire partie des 05 premiers utilisateurs éligibles et gagner 2 000 F, venez découvrir l'offre et vous y inscrire
+  </div>
+</div>
+          <div class="download-buttons">
+  <a href="#" class="store-button">
+    <img src="assets/appstore.png" alt="App Store" class="store-logo" />
+  </a>
+  <a href="#" class="store-button">
+    <img src="assets/playstore.png" alt="Google Play" class="store-logo" />
+  </a>
+</div>
+
+          <div class="banner-notice">
+  🎁 Promo spéciale : 0% frais de retrait jusqu’au 15 Décembre !
+</div>
+<ion-button expand="block" color="warning" (click)="showPromo()">
+  🎁 Voir la promo spéciale
+</ion-button><br><br>
+<div class="discover-button" routerLink="/offre-lancement">Je découvre l'offre</div>
+        </div>
+      </section>
+
+      <section class="cta-create">
+  <ion-button expand="block" color="success" (click)="createTontine()">+ Créer une nouvelle tontine</ion-button>
+</section>
+
+<div class="content-align-right">
+  <section class="my-section">
+    <h2 class="section-header">Mes Prêts</h2>
+    <div class="card-grid">
+      <ion-card class="loan-card" *ngFor="let p of prets">
+        <ion-card-header>
+          <ion-card-title>{{ p.titre }}</ion-card-title>
+          <ion-card-subtitle>{{ p.details }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button fill="outline" size="small" (click)="viewPret(p)">Détails</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+  <section class="my-section">
+    <h2 class="section-header">Mes Épargnes</h2>
+    <div class="card-grid">
+      <ion-card class="saving-card" *ngFor="let e of epargnes">
+        <ion-card-header>
+          <ion-card-title>{{ e.titre }}</ion-card-title>
+          <ion-card-subtitle>{{ e.details }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button fill="outline" size="small" (click)="viewEpargne(e)">Détails</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+
+  <section class="my-section">
+    <h2 class="section-header">Mes Tontines</h2>
+    <div class="card-grid">
+      <ion-card *ngFor="let t of tontines" [style.border-left]="'5px solid ' + t.color">
+        <ion-card-header>
+          <ion-card-title>{{ t.name }}</ion-card-title>
+          <ion-card-subtitle>{{ t.amount | currency:'FCFA' }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button fill="outline" size="small" (click)="openDetails(t)">Détails</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </section>
+  <section class="info-summary">
+    <h2 class="section-header">📊 Statistiques générales</h2>
+    <div class="stats-row">
+      <div class="stat-box">
+        <ion-icon name="people-circle-outline"></ion-icon>
+        <p>+2 000 membres</p>
+      </div>
+      <div class="stat-box">
+        <ion-icon name="wallet-outline"></ion-icon>
+        <p>+120M FCFA prêtés</p>
+      </div>
+      <div class="stat-box">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <p>5 ans d’expérience</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2 class="section-header">💬 Avis des membres</h2>
+    <div class="testimonial-row">
+      <div class="testimonial-box">
+        <p>“Grâce à SunuTontine, j'ai financé mes études sans stress !”</p>
+        <span>— Awa D., Étudiante</span>
+      </div>
+      <div class="testimonial-box">
+        <p>“L'application m'a permis d'épargner régulièrement pour ma famille.”</p>
+        <span>— Mamadou S., Entrepreneur</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-section">
+    <h2 class="section-header">📰 Actualités Financières</h2>
+    <div class="news-card">
+      <p>📈 Le taux d’épargne moyen au Sénégal a augmenté de 3,5% en 2025.</p>
+      <p>💡 Astuce : Épargnez 10% de vos revenus pour bâtir un capital solide.</p>
+    </div>
+  </section>
+  <section class="security-info">
+    <h2 class="section-header">🔐 Sécurité Garantie</h2>
+    <p>Vos données sont cryptées et stockées de manière sécurisée.</p>
+    <p>Partenaire de confiance : Crédit Mutuel du Sénégal 🇸🇳</p>
+  </section>
+
+  <section class="members-highlight">
+    <h2 class="section-header">👥 Nouveaux Membres</h2>
+    <p>Bienvenue à nos 48 nouveaux membres cette semaine ! 💚</p>
+  </section>
+
+  <section class="security-info">
+    <h2 class="section-header">🔐 Sécurité Garantie</h2>
+    <p>Vos données sont cryptées et stockées de manière sécurisée.</p>
+    <p>Partenaire de confiance : Crédit Mutuel du Sénégal 🇸🇳</p>
+  </section>
+  <section class="faq-section">
+  <h2 class="section-header">Foire aux questions</h2>
+  <div class="faq-item">
+    <h3 class="faq-question">Comment fonctionne SUNUTONTINE ?</h3>
+    <p class="faq-answer">L'application vous permet de créer, gérer et suivre vos tontines en toute simplicité, de manière sécurisée.</p>
+  </div>
+  <div class="faq-item">
+    <h3 class="faq-question">Est-ce sécurisé ?</h3>
+    <p class="faq-answer">Oui, toutes les données sont cryptées et les paiements sont sécurisés via nos partenaires bancaires.</p>
+  </div>
+</section>
+<section class="comparison-section">
+  <h2 class="section-header">Pourquoi choisir SUNUTONTINE ?</h2>
+  <div class="comparison-table">
+    <div class="comparison-row header">
+      <div>Fonctionnalité</div>
+      <div>Solution classique</div>
+      <div>SUNUTONTINE</div>
+    </div>
+    <div class="comparison-row">
+      <div>Suivi des paiements</div>
+      <div>Manuel</div>
+      <div>Automatisé, en temps réel</div>
+    </div>
+    <div class="comparison-row">
+      <div>Notifications</div>
+      <div>Appels/SMS</div>
+      <div>Push mobiles, emails</div>
+    </div>
+    <div class="comparison-row">
+      <div>Sécurité</div>
+      <div>Non garantie</div>
+      <div>Cryptée, bancarisée</div>
+    </div>
+  </div>
+</section>
+<ion-card button routerLink="/historique-tontines" class="service-card">
+  <ion-card-header>
+  <ion-card-title class="service-title">📜 Historique Tontines</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    Consultez les tontines que vous avez rejointes, et téléchargez vos reçus PDF.
+  </ion-card-content>
+</ion-card>
+  <div class="alert-banner">
+    🚧 Maintenance prévue le 15 juillet à 24h — Le service sera temporairement indisponible pendant quelques jours .
+  </div>
+</div>
+<br><br><br>
+<div class="footer-bar">
+  <div class="footer-content">
+    <div class="footer-left">
+      <p>&copy; 2025 <strong>SunuTontine</strong> — Tous droits réservés.</p>
+      <p class="small-text">Développé avec ❤️ au Sénégal</p>
+    </div>
+    <div class="footer-links">
+      <a routerLink="/conditions">Conditions d'utilisation</a>
+      <a routerLink="/confidentialite">Politique de confidentialité</a>
+      <a routerLink="/contact">Contact</a>
+    </div>
+    <div class="footer-social">
+      <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+      <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+      <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+    </div>
+  </div>
+</div>
+
+<div class="promo-container">
+  <p class="promo-text">{{ promoText }}</p>
+</div>
+

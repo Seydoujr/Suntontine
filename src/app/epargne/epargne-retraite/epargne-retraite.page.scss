@@ -1,0 +1,185 @@
+.epargne-retraite-page {
+  background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+  font-family: 'Segoe UI', sans-serif;
+
+  .custom-toolbar {
+    --background: #047857;
+    --color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .intro-box {
+    text-align: center;
+    margin: 20px 0 30px;
+    padding: 0 20px;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #047857;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #475569;
+      margin-top: 10px;
+    }
+  }
+
+  .form-container {
+    padding: 0 20px;
+
+    .input-box {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+
+      ion-label {
+        font-weight: 500;
+        color: #047857;
+      }
+
+      ion-input {
+        font-size: 1.1rem;
+      }
+    }
+
+    ion-button {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      --box-shadow: 0 6px 14px rgba(22, 163, 74, 0.3);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    .loading-spinner {
+      display: block;
+      margin: 20px auto;
+      color: #047857;
+      width: 30px;
+      height: 30px;
+    }
+
+    .result-box {
+      background: #ecfdf5;
+      color: #065f46;
+      text-align: center;
+      margin: 25px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 128, 0, 0.1);
+
+      h4 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .partenaires {
+    text-align: center;
+    margin-top: 40px;
+
+    h3 {
+      font-size: 1.2rem;
+      color: #334155;
+      margin-bottom: 15px;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+
+      img {
+        height: 40px;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+
+        &:hover {
+          filter: none;
+        }
+      }
+    }
+  }
+}
+.avantages-section {
+  margin: 40px 20px 20px;
+  background: #f0fdf4;
+  border-left: 5px solid #22c55e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.05);
+
+  h3 {
+    font-size: 1.2rem;
+    color: #065f46;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #374151;
+      display: flex;
+      align-items: center;
+
+      ion-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.rappel-box {
+  margin: 30px 20px;
+  background-color: #dcfce7;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  color: #065f46;
+  box-shadow: 0 2px 8px rgba(0, 128, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .alarm-icon {
+    font-size: 2rem;
+    color: #047857;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+ion-button[color="tertiary"] {
+  margin-top: 12px;
+  background: #fcd34d;
+  color: #78350f;
+  font-weight: bold;
+  --box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+
+  &:hover {
+    transform: scale(1.01);
+  }
+}

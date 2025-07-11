@@ -1,0 +1,40 @@
+.transaction-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.transaction-card:hover {
+  transform: scale(1.02);
+}
+
+.transaction-card ion-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.amount {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2b8a3e;
+  margin-bottom: 8px;
+}
+
+.status-badge {
+  float: right;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 50px;
+  color: #888;
+}
+
+.empty-state ion-icon {
+  font-size: 48px;
+  color: #ccc;
+  margin-bottom: 12px;
+}

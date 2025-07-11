@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="success" class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/epargne" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center text-white text-lg font-bold">
+      💼 Épargne Retraite
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding epargne-retraite-page">
+  <section class="intro-box">
+    <h2>Préparez votre avenir sereinement</h2>
+    <p>Planifiez votre retraite dès aujourd’hui et assurez votre tranquillité financière.</p>
+  </section>
+
+  <section class="form-container">
+    <ion-item class="input-box">
+      <ion-label position="floating">💰 Montant mensuel (FCFA)</ion-label>
+      <ion-input type="number" [(ngModel)]="montant"></ion-input>
+    </ion-item>
+
+    <ion-item class="input-box">
+      <ion-label position="floating">🎯 Âge de départ à la retraite</ion-label>
+      <ion-input type="number" [(ngModel)]="ageRetraite"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="success" shape="round" size="large" (click)="validerRetraite()">
+      Valider
+      <ion-icon name="checkmark-circle-outline" slot="end"></ion-icon>
+    </ion-button>
+
+    <ion-spinner name="crescent" *ngIf="loading" class="loading-spinner"></ion-spinner>
+
+    <div *ngIf="montantFinal && !loading" class="result-box">
+      <h4>📈 Estimation à la retraite :</h4>
+      <p>{{ montantFinal | number }} FCFA</p>
+    </div>
+
+    <!-- ✅ Bouton PDF ajouté ici -->
+    <ion-button
+      *ngIf="montantFinal && !loading"
+      expand="block"
+      color="tertiary"
+      shape="round"
+      size="medium"
+      (click)="telechargerPDF()">
+      Télécharger la simulation en PDF
+      <ion-icon name="download-outline" slot="end"></ion-icon>
+    </ion-button>
+  </section>
+
+  <section class="partenaires">
+    <h3>Nos partenaires</h3>
+    <div class="logos">
+      <img src="assets/logos/uba.png" alt="UBA" />
+      <img src="assets/logos/card.png" alt="Card" />
+      <img src="assets/logos/gtbank.png" alt="GTBank" />
+    </div>
+
+    <section class="avantages-section">
+      <h3>Pourquoi choisir l’épargne retraite ?</h3>
+      <ul>
+        <li>🛡️ Sécurité financière à long terme</li>
+        <li>📆 Flexibilité des montants mensuels</li>
+        <li>💸 Retraits garantis dès l’âge choisi</li>
+        <li>📊 Estimation transparente en temps réel</li>
+        <li>🤝 Accompagnement personnalisé</li>
+      </ul>
+    </section>
+
+    <section class="rappel-box animate-pulse">
+      <ion-icon name="alarm-outline" class="alarm-icon"></ion-icon>
+      <p>Pensez à cotiser chaque mois pour sécuriser votre avenir !</p>
+    </section>
+  </section>
+</ion-content>

@@ -1,0 +1,42 @@
+@import 'animate.css';
+
+.ouvrir-page {
+  background: linear-gradient(160deg, #ecfdf5 0%, #d1fae5 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .card-3d {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    transform: rotateY(0deg) translateZ(0);
+    transition: transform 0.4s ease;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    animation: fadeInUp 0.7s;
+
+    h2 {
+      text-align: center;
+      color: #047857;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    ion-item {
+      margin-bottom: 15px;
+      --background: #f0fdf4;
+      --border-radius: 12px;
+      --highlight-background: transparent;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      box-shadow: 0 6px 14px rgba(22, 163, 74, 0.3);
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pret"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Prêt Voiture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="hero-section">
+    <img src="assets/voitures/cover.jpg" class="hero-image" alt="Voiture">
+    <div class="hero-overlay">
+      <h1>Choisissez votre véhicule</h1>
+      <p>Financez-le avec SunuTontine</p>
+    </div>
+  </div>
+
+  <div class="vehicle-list">
+    <ion-card *ngFor="let car of cars" class="vehicle-card" (click)="selectCar(car)" [class.selected]="selectedCar?.name === car.name">
+      <img [src]="car.image" alt="{{ car.name }}">
+      <ion-card-header>
+        <ion-card-title>{{ car.name }}</ion-card-title>
+        <ion-card-subtitle>{{ car.price | number }} FCFA</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <ion-card class="main-card">
+    <ion-card-header>
+      <ion-card-title>Montant et Durée</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Montant demandé</ion-label>
+        <ion-input [(ngModel)]="loanAmount" type="number"></ion-input>
+      </ion-item>
+
+      <ion-segment [(ngModel)]="loanDuration">
+        <ion-segment-button value="12">12 mois</ion-segment-button>
+        <ion-segment-button value="24">24 mois</ion-segment-button>
+        <ion-segment-button value="36">36 mois</ion-segment-button>
+      </ion-segment>
+
+      <div class="result-section">
+        <p>Mensualité estimée :</p>
+        <div class="monthly-payment">{{ calculatePayment() | number }} FCFA</div>
+        <ion-note>Taux fixe : 7.5%</ion-note>
+      </div>
+
+      <ion-button expand="block" color="primary" (click)="submitRequest()">
+        Demander ce prêt
+      </ion-button>
+      <ion-button expand="block" color="primary" (click)="submitRequest()">
+  📄 Demander ce prêt & Recevoir un PDF
+</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

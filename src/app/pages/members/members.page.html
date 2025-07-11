@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <!-- Bouton retour vers dashboard -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Titre centré -->
+    <ion-title class="ion-text-center text-xl font-bold text-white">
+      Membres de la Tontine
+    </ion-title>
+
+    <!-- Bouton de rafraîchissement -->
+    <ion-buttons slot="end">
+      <ion-button (click)="refreshMembers()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen class="ion-padding members-page">
+  <section class="intro-section">
+    <h2 class="text-2xl font-bold text-center text-success mb-2">Notre Équipe Solidaire</h2>
+    <p class="text-center text-gray-600 mb-6">
+      Ensemble pour une épargne inclusive, responsable et solidaire.
+    </p>
+  </section>
+
+  <div class="max-w-6xl mx-auto">
+    <div class="flex-container">
+      <div *ngFor="let member of members" class="member-wrapper">
+        <ion-card class="member-card" (click)="viewProfile(member.id)">
+          <div class="flex justify-center">
+            <img [src]="member.photo || 'assets/members/default-avatar.png'" alt="Photo de {{ member.name }}" class="member-photo" />
+          </div>
+          <ion-card-header class="text-center px-4">
+            <ion-card-title class="text-lg font-semibold text-gray-800 ion-text-center">
+              {{ member.name }}
+            </ion-card-title>
+            <ion-card-subtitle class="text-gray-600 mt-1 ion-text-center">
+              <span class="role-badge">{{ member.role }}</span>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content class="text-center pb-6">
+            <ion-button
+              fill="solid"
+              size="small"
+              color="success"
+              class="shadow-sm mx-auto"
+              (click)="viewProfile(member.id); $event.stopPropagation()">
+              <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+              Voir Profil
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="light" class="footer-toolbar">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="http://localhost:8100/dashboard" class="footer-link">À propos</a>
+        <a href="#" class="footer-link">Contact</a>
+        <a href="#" class="footer-link">Mentions légales</a>
+      </div>
+      <div class="footer-copyright">
+        © 2023 Tontine App - Tous droits réservés
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-footer>

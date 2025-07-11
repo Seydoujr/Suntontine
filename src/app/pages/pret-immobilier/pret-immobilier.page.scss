@@ -1,0 +1,317 @@
+ion-content {
+  --background: #f9fbfc;
+  font-family: 'system-ui', sans-serif;
+  color: #1e293b;
+}
+
+.modern-toolbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(90deg, var(--ion-color-secondary), var(--ion-color-tertiary));
+  color: white;
+}
+
+.section-title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem;
+  color: #0f172a;
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: var(--ion-color-secondary);
+  border-radius: 2px;
+}
+
+.hero-section {
+  position: relative;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: transform 0.5s ease;
+}
+
+.hero-section:hover .hero-image {
+  transform: scale(1.05);
+}
+
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.2rem;
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.hero-overlay h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.hero-overlay p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.property-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  justify-items: center; /* centre chaque élément dans sa cellule */
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+
+.type-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.type-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.type-card .image-container {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.type-card .image-container img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+
+
+.type-card p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.type-card.selected {
+  border: 2px solid var(--ion-color-secondary);
+  background-color: rgba(var(--ion-color-secondary-rgb), 0.05);
+}
+
+.type-card.selected p {
+  color: var(--ion-color-secondary);
+  font-weight: 600;
+}
+
+.simulation-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+}
+
+.simulation-card ion-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ion-color-secondary);
+}
+
+.simulation-card ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 1rem;
+}
+
+.simulation-card ion-segment-button {
+  font-size: 0.8rem;
+  min-width: 60px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.simulation-card ion-segment-button:hover {
+  background-color: var(--ion-color-secondary-shade);
+  color: white;
+}
+
+.simulation-card ion-segment-button.segment-button-checked {
+  background-color: var(--ion-color-secondary);
+  color: white;
+}
+
+.simulation-card ion-note {
+  font-size: 0.8rem;
+  text-align: right;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.submit-button {
+  --border-radius: 10px;
+  height: 48px;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.featured-properties {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.featured-card {
+  min-width: 220px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  text-align: center;
+  position: relative;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.featured-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--ion-color-tertiary);
+  color: white;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.featured-card img {
+  max-height: 160px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  padding: 1rem 0;
+}
+
+.property-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.property-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.property-info .price {
+  font-size: 0.95rem;
+  color: var(--ion-color-secondary);
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.map-card {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.map-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.cta-button {
+  height: 48px;
+  --border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(var(--ion-color-tertiary-rgb), 0.2);
+}
+
+.cta-button:hover {
+  filter: brightness(1.05);
+}
+
+:host-context(body.dark) ion-content {
+  --background: #0f172a;
+  color: white;
+}
+
+:host-context(body.dark) .type-card {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+:host-context(body.dark) .featured-card {
+  background: #1e293b;
+  color: white;
+}
+.type-card {
+  height: 180px; /* ou une hauteur qui convient visuellement */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

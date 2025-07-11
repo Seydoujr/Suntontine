@@ -1,0 +1,130 @@
+.epargne-page {
+  background: #f0fdf4;
+}
+
+.epargne-page .intro-text {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.epargne-page .intro-text h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #064e3b;
+}
+
+.epargne-page .intro-text p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-top: 0.3rem;
+}
+
+.epargne-page .button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.epargne-page .epargne-card {
+  padding: 20px;
+  border-radius: 20px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.epargne-page .epargne-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.epargne-page .epargne-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1rem 0;
+  color: #047857;
+}
+
+.epargne-page .epargne-card .icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* NOUVEAUX STYLES DES BOUTONS SEULEMENT */
+.epargne-page .epargne-card .explore-button {
+  --background: #10b981;
+  --background-hover: #059669;
+  --color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  --box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  --border-radius: 50px;
+  height: 40px;
+  --transition: all 0.2s ease;
+}
+
+.epargne-page .epargne-card .explore-button:hover {
+  --background: #059669;
+  transform: translateY(-2px);
+  --box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+}
+
+.epargne-page .epargne-card .explore-button ion-icon {
+  margin-left: 6px;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.epargne-page .epargne-card .explore-button:hover ion-icon {
+  transform: translateX(3px);
+}
+
+.cta-box {
+  margin-top: 40px;
+  background: #ecfdf5;
+  border-left: 4px solid #16a34a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.cta-box h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #065f46;
+  margin-bottom: 8px;
+}
+
+.cta-box p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 16px;
+}
+
+/* NOUVEAU STYLE BOUTON CTA */
+.cta-box ion-button {
+  --background: #10b981;
+  --background-hover: #059669;
+  --color: white;
+  font-weight: 600;
+  --box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  height: 45px;
+  --border-radius: 50px;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.cta-box ion-button:hover {
+  transform: translateY(-2px);
+  --box-shadow: 0 6px 15px rgba(16, 185, 129, 0.4);
+}

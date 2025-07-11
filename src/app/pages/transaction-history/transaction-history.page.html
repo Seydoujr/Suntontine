@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historique des Transactions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Barre de recherche -->
+  <ion-searchbar
+    [(ngModel)]="searchTerm"
+    placeholder="Rechercher par type ou ID"
+    debounce="300"
+    animated
+  ></ion-searchbar>
+
+  <!-- Filtre par date -->
+  <ion-item lines="none">
+    <ion-label>Date</ion-label>
+    <ion-datetime
+      display-format="YYYY-MM-DD"
+      presentation="date"
+      [(ngModel)]="selectedDate"
+      placeholder="Choisir une date"
+    ></ion-datetime>
+  </ion-item>
+
+  <!-- Liste des transactions filtrées -->
+  <div *ngIf="filteredTransactions.length > 0; else noTransactions">
+    <ion-card *ngFor="let tx of filteredTransactions" class="transaction-card">
+      <ion-card-header>
+       <ion-card-title>
+  <ion-icon
+    [name]="
+      tx.type === 'Dépôt'
+        ? 'arrow-down-circle-outline'
+        : tx.type === 'Retrait'
+        ? 'arrow-up-circle-outline'
+        : 'swap-horizontal-outline'
+    "
+    color="primary"
+  ></ion-icon>
+  {{ tx.type }}
+</ion-card-title>
+
+        <ion-card-subtitle>{{ tx.date }} • Réf: {{ tx.id }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="amount">
+          {{ tx.amount | currency: 'XOF':'symbol':'1.0-0':'fr' }}
+        </div>
+        <ion-badge
+          [color]="tx.status === 'Succès' ? 'success' : 'danger'"
+          class="status-badge"
+        >
+          {{ tx.status }}
+        </ion-badge>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ng-template #noTransactions>
+    <div class="empty-state">
+      <ion-icon name="document-text-outline" size="large"></ion-icon>
+      <p>Aucune transaction trouvée.</p>
+    </div>
+  </ng-template>
+
+</ion-content>

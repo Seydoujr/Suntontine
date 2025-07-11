@@ -1,0 +1,113 @@
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9fafb;
+  height: 100vh;
+  padding: 1.5rem;
+}
+
+.forgot-link a,
+.register-link a {
+  color: #16a34a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link a:hover,
+.register-link a:hover {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 672px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.206);
+  padding: 1.5rem;
+  animation: floatIn 0.6s ease-out;
+  transition: transform 0.3s ease;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.logo-container h1 {
+  color: #16a34a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.logo-container img.logo-image {
+  display: block;
+  width: 80px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.custom-item {
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.custom-item.ion-focused {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.2);
+  transform: scale(1.02);
+}
+
+ion-button {
+  --border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.password-toggle-icon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+  color: #16a34a;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    padding: 1rem;
+  }
+
+  .logo-container img.logo-image {
+    width: 60px;
+  }
+}

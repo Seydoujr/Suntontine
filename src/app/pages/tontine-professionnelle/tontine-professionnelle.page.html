@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tontine"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-white text-center font-bold">
+      Tontine Professionnelle
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding page-pro">
+  <div class="intro-box">
+    <h2>🤝 Un cercle d’affaires sécurisé</h2>
+    <p>Idéale pour les entrepreneurs et professionnels souhaitant épargner ensemble.</p>
+  </div>
+
+  <ion-card class="info-box">
+    <ion-item>
+      <ion-label>Montant / mois</ion-label>
+      <ion-note slot="end">{{ montant }} FCFA</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Durée</ion-label>
+      <ion-note slot="end">{{ duree }} mois</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>Membres</ion-label>
+      <ion-note slot="end">{{ membres }}</ion-note>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="block" color="primary" shape="round" (click)="rejoindreCercle()">
+    Rejoindre la Tontine Pro
+    <ion-icon name="briefcase-outline" slot="end"></ion-icon>
+  </ion-button>
+</ion-content>
