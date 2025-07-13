@@ -59,9 +59,9 @@ src/
 
 | Nom                      | Rôle                     |
 |--------------------------|--------------------------|
-| Abdoul Wahab GUEYE       | Développeur Principal     |
+| Abdoul Wahab GUEYE       | Développeur Principal    |
 | [Autres membres ici...]  | Analyste / Designer UI/UX|
-
+| Seydou Junior (GitHub)   | mon surnom (Abdoul Wahab        |
 
  💾 Installation locale
 
