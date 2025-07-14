@@ -60,10 +60,10 @@ src/
 | Nom                      | Rôle                     |
 |--------------------------|--------------------------|
 | Abdou wahab Gueye        | Développeur Principal    |
-Mamadou Diack              | Développeurs Principal   |
-Youssouph Ndiaye           | Développeurs Principal   |
-Serigne Djibril Ndiaye     | Développeurs Principal    |
-Fatoumata Camara           | Développeurs Principal    |
+Mamadou Diack              | Développeur Principal   |
+Youssouph Ndiaye           | Développeur Principal   |
+Serigne Djibril Ndiaye     | Développeur Principal    |
+Fatoumata Camara           | Développeur Principal    |
 Ousseynou Dia              | Analyste / Designer UI/UX|
 | Nah Awa Faye             | Analyste / Designer UI/UX|
 Youssou Dramé              | Analyste / Designer UI/UX|
