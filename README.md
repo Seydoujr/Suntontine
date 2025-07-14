@@ -59,8 +59,16 @@ src/
 
 | Nom                      | Rôle                     |
 |--------------------------|--------------------------|
-| Abdoul Wahab GUEYE       | Développeur Principal    |
-| [Autres membres ici...]  | Analyste / Designer UI/UX|
+| Abdou wahab Gueye
+Mamadou Diack
+Youssouph Ndiaye
+Serigne Djibril Ndiaye
+Fatoumata Camara
+Ousseynou Dia              | Développeurs Principal    |
+| Nah Awa Faye 
+Youssou Dramé 
+Serigne Sow 
+Rokhaya Dione              | Analyste / Designer UI/UX|
 | Seydou Junior (GitHub)   | mon surnom (Abdoul Wahab        |
 
  💾 Installation locale
