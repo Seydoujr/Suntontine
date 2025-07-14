@@ -59,17 +59,17 @@ src/
 
 | Nom                      | Rôle                     |
 |--------------------------|--------------------------|
-| Abdou wahab Gueye
-Mamadou Diack
-Youssouph Ndiaye
-Serigne Djibril Ndiaye
-Fatoumata Camara
-Ousseynou Dia              | Développeurs Principal    |
-| Nah Awa Faye 
-Youssou Dramé 
-Serigne Sow 
+| Abdou wahab Gueye        | Développeur Principal    |
+Mamadou Diack              | Développeurs Principal   |
+Youssouph Ndiaye           | Développeurs Principal   |
+Serigne Djibril Ndiaye     | Développeurs Principal    |
+Fatoumata Camara           | Développeurs Principal    |
+Ousseynou Dia              | Analyste / Designer UI/UX|
+| Nah Awa Faye             | Analyste / Designer UI/UX|
+Youssou Dramé              | Analyste / Designer UI/UX|
+Serigne Sow                | Analyste / Designer UI/UX|
 Rokhaya Dione              | Analyste / Designer UI/UX|
-| Seydou Junior (GitHub)   | mon surnom (Abdoul Wahab        |
+| Seydou Junior (GitHub)   |  surnom (Abdoul Wahab )       |
 
  💾 Installation locale
 
